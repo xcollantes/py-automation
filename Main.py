@@ -3,7 +3,7 @@
 # Examples tried out from Al Sweigart's book, "Automating the Boring Stuff with Python"
 # Web Scraping: Chapter 11
 
-import webbrowser, sys, pyperclip, requests, pprint, os
+import webbrowser, sys, pyperclip, requests, pprint, os, bs4
 
 # Launches Google Maps in browser from command line argument 
 # or clipboard if no command line argument found. 
@@ -70,10 +70,12 @@ def scrape():
 	print (response.text[1050:1500])
 
 	
+def getHTML():
+	print ("Initiating HTML")
 	
 	
 if __name__ == "__main__":
-	defList = {'mapIt':mapIt, 'toFile':toFile, 'scrape':scrape}
+	defList = {'mapIt':mapIt, 'toFile':toFile, 'scrape':scrape, 'getHTML':getHTML}
 	
 	try:
 		program = sys.argv[1]	
