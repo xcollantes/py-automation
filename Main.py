@@ -71,7 +71,20 @@ def scrape():
 
 	
 def getHTML():
-	print ("Initiating HTML")
+	linkSoup = "https://xaviercollantes.me"
+	
+	try:
+		response = requests.get(linkSoup)
+		response.raise_for_status()
+		Soup = bs4.BeautifulSoup(response.text)
+	except Exception as e:
+		print("Uh-oh! Error parsing HTML page: %s" % e)
+		
+	elems = Soup.select('div')
+	
+	#print(elems[20])
+	print(elems[20].attrs)
+	#print(elems[20].getText())
 	
 	
 if __name__ == "__main__":
